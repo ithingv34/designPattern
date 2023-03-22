@@ -146,7 +146,9 @@ public class Singleton {
 3. double-checked locking 사용
 - lock을 획득하기 전에 null을 확인하고 lock을 획득한 후에 다시 확인하는 방식이다.
 - getInstance() 메서드는 lock을 획득하기 전에 null을 확인(1)하고 다시 확인(2)하여 하나의 인스턴스만 생성되도록 한다.
-- `volatile` 키워드는 인스턴스 변수에 대한 변경 사항이 모든 스레드에 표시되도록 한다.
+- `volatile`은 모든 스레드가 변수를 메모리에서 로드할 수 있도록 강제성을 부여한다. 
+- `volatile`을 사용하지 않았을 경우 각각의 스레드는 메모리에서 가져온 변숫값을 CPU Cache에 저장하는데, 이 CPU Cache는 스레드마다 가지고 있기 때문에 CPU Cache에 들어있는 변숫값이 다를 경우 변숫값 불일치 문제가 발생한다.
+- 즉 싱글톤 변수를 메모리에서만 읽고, 변경할 수 있도록 한다.
 
 ```java
 public class Singleton {
