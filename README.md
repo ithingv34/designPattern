@@ -1,8 +1,8 @@
 # 디자인 패턴
 
 1. 객제 지향 성계 패턴 원칙
-    - [SOLID 원칙]()
-    - [UML Class Diagram]()
+    - [SOLID 원칙](./oop_basic/README.md)
+    - [UML Class Diagram](./oop_basic/README.md)
 2. 객체 생성 관련 패턴
     - [Singleton](./singleton/README.md)
     - [Factory Method](./factory_method/README.md)
