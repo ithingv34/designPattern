@@ -27,22 +27,17 @@
 **예제**
 
 ```java
-public class ConnectionPool {
-	
-	private static ConnectionPool instance = new ConnectionPool();
-	
-	private ConnectionPool() {}
-	
-	public static ConnectionPool getInstance() {
-		
-		if(instance == null) {
-			instance = new ConnectionPool();
-		}
+public class Singleton {
+    private static Singleton instance;
 
-		return instance; 
-			
-	}
+    private Singleton () {};
 
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
 }
 
 ```
@@ -107,6 +102,9 @@ private static Calendar createCalendar(TimeZone zone,
 **싱글턴 패턴 동기화 이슈**
 
 - 위의 구현에서 Singleton 패턴은 스레드로부터 안전하지 않다. 여러 스레드가 동시에 Singleton에 액세스하려고 하면 경쟁 상태 및 동기화 문제가 발생할 수 있다.
+
+<img src="../img/singleton-2.png">
+
 - 이 문제를 해결하기 위한 다양한 방법이 존재한다.
 
 ---
@@ -213,6 +211,7 @@ public class SingletonTest {
 ```
 
 **결과**
+
 - 모든 스레드가 동일한 Singleton 인스턴스에 액세스하고 있음
 <img src="../img/singleton-1.png">
 
